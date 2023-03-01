@@ -26,7 +26,7 @@
               <div class="card-header">
                 <h3 class="card-title">Users Todo Lists Details</h3>
                 <a href="{{route('todolists.create')}}">
-                  <button class="btn btn-primary d-inline-block m-2 float-right"> Add </button>
+                  <button class="btn btn-primary d-inline-block m-2 float-right"> Add Todo list with associated tasks </button>
                 </a>
               </div>
               <!-- /.card-header -->

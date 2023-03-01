@@ -23,16 +23,14 @@ class TodoRepository implements TodoRepositoryInterface{
         $todoId = $todo->todo_id;
         if(isset($data['taskTitle'])){
            for($i=1;$i<=sizeof($data['taskTitle']);$i++) {
-            for($j=1;$j<=sizeof($data['taskDetails']);$j++){
                 if(is_null($data['taskTitle'][$i])){                    
                     return redirect()->route('dashboard')->with('validation_error','task title can not be null');
                 }
                 $task = new Task;
                 $task->task_title = $data['taskTitle'][$i];
-                $task->task_details = $data['taskDetails'][$j];
+                $task->task_details = $data['taskDetails'][$i];
                 $task->todo_id = $todoId;
                 $task->save();
-            }
 
            }
         }

@@ -24,7 +24,7 @@
     	<div class="container-fluid">
       <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">{{$title}}</h3>
+                <h3 class="card-title"> {{$title}} <b>{{$todo->name}}</b> associated tasks</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -51,6 +51,7 @@
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
+                  <a href="{{route('tasklists.view', ['id' => $todo_id])}}"><button type="button"  class="btn btn-info float-right">Cancel</button></a> 
                 </div>
               </form>
             </div>

@@ -28,10 +28,11 @@ class TaskController extends Controller
 
     // task list create
     public function create($id){  
+        $todo = $this->taskRepository->findParent($id);
         $todo_id = $id;             
         $url = '/tasklists/store';
-        $title = 'Users Task Lists Create';
-        $data= compact('url','title','todo_id');
+        $title = 'Create';
+        $data= compact('url','title','todo_id','todo');
         return view('user.tasklists.create')->with($data);
     }
 
@@ -58,9 +59,10 @@ class TaskController extends Controller
         }else {
             // user found
             $todo_id = $task->todo_id;
+            $todo = $this->taskRepository->findParent($todo_id);
             $url = '/task/tasklists/update'.'/'.$id;
-            $title = 'User Task Lists Edit';
-            $data= compact('task','url','title','todo_id');
+            $title = 'Edit';
+            $data= compact('task','url','title','todo_id','todo');
             return view('user.tasklists.create')->with($data);
 
         }

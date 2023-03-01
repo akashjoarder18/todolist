@@ -32,7 +32,7 @@
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label  for="name">Name</label>
+                    <label  for="name">To-do Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value="{{old('name',$todo->name ?? '')}}">
                     <span class="text-danger">
                       @error('name')
@@ -60,6 +60,7 @@
                 @endif
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
+                  <a href="{{route('todolists.index', ['id' => auth()->user()->id])}}"><button type="button"  class="btn btn-info float-right">Cancel</button></a>                  
                 </div>
               </form>
             </div>
