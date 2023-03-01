@@ -81,7 +81,6 @@
     <section class="content">
       <div class="container-fluid">
         @yield('body')
-
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -140,6 +139,18 @@
   //Date picker
   $('#reservationdate').datetimepicker({
         format: 'Y-MM-DD'
+    });
+</script>
+ <script>
+    var i = 0;
+    $("#dynamic-ar").click(function () {
+        ++i;
+        $("#dynamicAddRemove").append('<tr><td><label for="title">Task Title'+ i +'</label><input type="text" class="form-group" style="padding:.375rem .75rem;margin:5px;width:100%"  id="title" name="taskTitle[' + i +
+            ']" placeholder="Enter task title" value="" /><label>Task Details'+ i +'</label><textarea class="form-control" name="taskDetails['+ i +']" rows="3" placeholder="Enter ..." ></textarea><br/><button type="button" class="float-right btn btn-outline-danger remove-input-field">Delete</button></td><tr>'
+            );
+    });
+    $(document).on('click', '.remove-input-field', function () {
+        $(this).parents('tr').remove();
     });
 </script>
 </body>

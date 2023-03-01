@@ -22,8 +22,18 @@
     <!-- Main row -->
     <div class="row">
     	<div class="container-fluid">
-    		Dashboard
+    		Welcome To Dashboard
     	</div>
+      <div class="card" style="margin: 0 auto;">
+        <div class="card-header">
+          <h3 class="card-title">Create To-do lists</h3>
+        </div>
+        <div class="card-body">
+          <a href="{{route('todolists.index', ['id' => auth()->user()->id])}}">
+            <button class="btn btn-primary d-inline-block m-2 float-right"> To-do lists </button>
+          </a>
+        </div>
+      </div>
     	
     </div>
     <!-- /.row (main row) -->

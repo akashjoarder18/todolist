@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\User\{AuthController,UserController};
+use App\Http\Controllers\User\{AuthController,UserController,TodoController,TaskController};
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,4 +30,19 @@ Route::group(['middleware'=>['user_auth']],function(){
     Route::get('/user/users/{id}',[UserController::class,'index'])->name('users.index');
     Route::get('/user/users/edit/{id}',[UserController::class,'edit'])->name('users.edit');
     Route::post('/user/users/update/{id}',[UserController::class,'update'])->name('users.update');
+    // Todo routes
+    Route::get('/todo/todolists/{id}',[TodoController::class,'index'])->name('todolists.index');
+    Route::get('/todolists/create',[TodoController::class,'create'])->name('todolists.create');
+    Route::post('/todolists/store',[TodoController::class,'store'])->name('todolists.store');
+    Route::get('/todo/todolists/edit/{id}',[TodoController::class,'edit'])->name('todolists.edit');
+    Route::post('/todo/todolists/update/{id}',[TodoController::class,'update'])->name('todolists.update');
+    Route::get('/todo/todolists/delete/{id}',[TodoController::class,'delete'])->name('todolists.delete');
+
+    // tasks routes    
+    Route::get('/task/tasklists/view/{id}',[TaskController::class,'view'])->name('tasklists.view');
+    Route::get('/tasklists/create/{id}',[TaskController::class,'create'])->name('tasklists.create');
+    Route::post('/tasklists/store',[TaskController::class,'store'])->name('tasklists.store');
+    Route::get('/task/tasklists/edit/{id}',[TaskController::class,'edit'])->name('tasklists.edit');
+    Route::post('/task/tasklists/update/{id}',[TaskController::class,'update'])->name('tasklists.update');
+    Route::get('/task/tasklists/delete/{id}',[TaskController::class,'delete'])->name('tasklists.delete');
 });

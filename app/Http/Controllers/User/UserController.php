@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Events\CustomerOrderEvent;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use Auth;
 
@@ -29,9 +28,9 @@ class UserController extends Controller
     // User register
     public function register(){       
         $url = '/users/store';
-        $title = 'Users Register';
+        $title = 'Users Registration form for new account';
         $data= compact('url','title');
-        return view('user.users.register')->with($data);
+        return view('user.users.registration')->with($data);
     }
 
     // user store
@@ -69,7 +68,7 @@ class UserController extends Controller
         $user = $this->userRepository->find($id);
         if(is_null($user)){
             // user not found
-            return redirect('/user/users');
+            return redirect('/user/users/'.$id);
         }else {
             // user found
             $url = '/user/users/update'.'/'.$id;

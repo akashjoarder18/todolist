@@ -17,7 +17,7 @@ class UserAuth
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-            if((isset(auth()->user()->id))){
+            if((!auth()->user()->status == 1)){
                 return redirect()->route('getLogin')->with('error','You have to be sure user to access this page');
             }
         }else{

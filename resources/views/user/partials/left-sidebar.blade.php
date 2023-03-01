@@ -51,6 +51,24 @@
               </p>
             </a>
           </li>
+          <li class="nav-item {{$current_route=='todolists.index'?'menu-open':''}}">
+            <a href="#" class="nav-link {{$current_route=='todolists.index'?'active':''}}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Todo Task Management
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('todolists.index', ['id' => auth()->user()->id])}}" class="nav-link {{$current_route=='todolists.index'?'active':''}}">
+                  <i class="far fas fa-user"></i>
+                  <p>TodoTask</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
           
         
 
